@@ -15,7 +15,7 @@ class CreateBotsStepsTable extends Migration
     {
         Schema::create('bots_steps', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_bot');
+            $table->foreignId('id_bot')->constrained('bots');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

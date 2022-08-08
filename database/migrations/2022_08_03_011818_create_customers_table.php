@@ -17,7 +17,7 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('name');
             $table->longText('profile_photo_url')->nullable();
-            $table->text('phone_number')->unique();
+            $table->string('phone_number', 255)->unique();
             $table->timestamps();
             $table->softDeletes();
         });

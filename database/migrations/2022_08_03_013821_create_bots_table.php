@@ -17,7 +17,7 @@ class CreateBotsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone_number')->unique();
-            $table->unsignedBigInteger('first_step_id')->unique()->nullable();
+            $table->integer('first_step_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

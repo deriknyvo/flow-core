@@ -15,7 +15,7 @@ class BotStepFactory extends Factory
     public function definition()
     {
         return [
-            'id_bot' => Bot::factory(),
+            'id_bot' => 1,
             'name' => $this->faker->words(2, true),
         ];
     }

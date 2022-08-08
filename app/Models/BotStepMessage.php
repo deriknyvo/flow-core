@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BotStepMessage extends Model
 {
     use HasFactory;
+
+    protected $table = 'bots_steps_messages';
 }
