@@ -18,9 +18,13 @@ class ConversationController extends Controller
     public function start(ConversationRequest $request)
     {
         $customer = $this->service->createCustomer($request);
+        
         $bot = Bot::findOfFail($request->idBot);
+
         $chat = $this->service->createChat($customer, $bot);
 
-        $chat->processe();
+        $response = $chat->processe();
+
+        return response()->json($response);
     }
 }
