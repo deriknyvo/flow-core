@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Services\ChatService;
 
 class StartTestFlow extends Command
 {
@@ -35,8 +36,23 @@ class StartTestFlow extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(ChatService $chatService)
     {
-        return 0;
+        $request = (object) [
+            'idBot' => 1,
+            'message' => 'Olá, tudo bem?',
+            'senderPhoneNumber' => '5544991197146',
+            'name' => 'Derik Nyvo',
+            'profilePhotoUrl' => null
+        ];
+
+        $messages = $chatService->start($request);
+
+        $messages->each(function ($message) {
+            $this->info($message->message);
+        });
+
+        // $this->info(json_encode($result));
+        // var_dump($result);
     }
 }

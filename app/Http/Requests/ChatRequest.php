@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConversationRequest extends FormRequest
+class ChatRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,9 @@ class ConversationRequest extends FormRequest
         return [
             'idBot' => 'required|integer',
             'message' => 'required|string',
-            'senderPhoneNumber' => 'required'
+            'senderPhoneNumber' => 'required',
+            'name' => 'string',
+            'profilePhotoUrl' => 'string'
         ];
     }
 }
